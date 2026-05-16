@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field Voice - Digital-twin humanizer for field communication</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #f7f4ef;
+      --cp-bg-elevated: #fcfbf8;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #f5f5f5;
+      --cp-border: #dedede;
+      --cp-border-strong: #919191;
+      --cp-text: #242424;
+      --cp-text-muted: #5c5c5c;
+      --cp-text-soft: #6f6f6f;
+      --cp-accent: #b11f4b;
+      --cp-accent-hover: #9a1a41;
+      --cp-accent-soft: rgba(177, 31, 75, 0.08);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(177, 31, 75, 0.12);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #3d3b3a;
+      --cp-bg-elevated: #343231;
+      --cp-surface: #292929;
+      --cp-surface-soft: #2e2e2e;
+      --cp-border: #474747;
+      --cp-border-strong: #5f5f5f;
+      --cp-text: #dedede;
+      --cp-text-muted: #919191;
+      --cp-text-soft: #b0b0b0;
+      --cp-accent: #fd8ea1;
+      --cp-accent-hover: #fb7b91;
+      --cp-accent-soft: rgba(253, 142, 161, 0.14);
+      --cp-accent-fg: #1a1a1a;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #4da6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(41, 41, 41, 0.88);
+      --cp-panel: rgba(41, 41, 41, 0.72);
+      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(253, 142, 161, 0.12);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      background: var(--cp-bg);
+      color: var(--cp-text);
+      font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+    }
+    a {
+      color: var(--cp-link);
+    }
+    .shell {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .hero {
+      border: 1px solid var(--cp-border);
+      background: var(--cp-panel-strong);
+      border-radius: 16px;
+      padding: 48px;
+      box-shadow: var(--cp-shadow);
+      margin-top: 24px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--cp-accent);
+      background: var(--cp-accent-soft);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      padding: 6px 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 0.95;
+      margin: 24px 0 16px;
+      letter-spacing: -0.04em;
+    }
+    .lede {
+      max-width: 760px;
+      color: var(--cp-text-muted);
+      font-size: 1.2rem;
+      margin: 0 0 28px;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.625rem;
+      padding: 11px 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--cp-border);
+      color: var(--cp-text);
+      background: var(--cp-surface);
+    }
+    .button.primary {
+      background: var(--cp-accent);
+      color: var(--cp-accent-fg);
+      border-color: var(--cp-accent);
+    }
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    section {
+      margin: 56px 0;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+    }
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+    }
+    .section-intro {
+      color: var(--cp-text-muted);
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+    .card {
+      background: var(--cp-surface);
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--cp-shadow);
+    }
+    .card.soft {
+      background: var(--cp-surface-soft);
+      box-shadow: none;
+    }
+    .metric {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--cp-accent);
+    }
+    .muted {
+      color: var(--cp-text-muted);
+    }
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .tag {
+      border: 1px solid var(--cp-border);
+      background: var(--cp-accent-soft);
+      color: var(--cp-text);
+      border-radius: 0.625rem;
+      padding: 5px 9px;
+      font-size: 0.85rem;
+      font-weight: 650;
+    }
+    .code {
+      background: var(--cp-bg-elevated);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      padding: 16px;
+      overflow: auto;
+      font-family: Consolas, "Courier New", Courier, monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 0.625rem;
+      border: 1px solid var(--cp-border);
+      background: var(--cp-surface);
+    }
+    th,
+    td {
+      text-align: left;
+      vertical-align: top;
+      padding: 12px;
+      border-bottom: 1px solid var(--cp-border);
+    }
+    th {
+      background: var(--cp-surface-soft);
+      color: var(--cp-text);
+    }
+    tr:last-child td {
+      border-bottom: 0;
+    }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: var(--cp-overlay);
+      border-bottom: 1px solid var(--cp-border);
+      backdrop-filter: blur(10px);
+    }
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+    .nav-links a {
+      color: var(--cp-text-muted);
+      text-decoration: none;
+    }
+    .brand {
+      font-weight: 800;
+      color: var(--cp-text);
+    }
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .status {
+      border-left: 4px solid var(--cp-accent);
+    }
+    .footer {
+      color: var(--cp-text-muted);
+      border-top: 1px solid var(--cp-border);
+      padding: 32px 0;
+    }
+    @media (max-width: 820px) {
+      .grid.three,
+      .grid.two,
+      .compare {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 28px;
+      }
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Field Voice</div>
+      <div class="nav-links">
+        <a href="#modes">Modes</a>
+        <a href="#profiles">Profiles</a>
+        <a href="#prompts">Prompts</a>
+        <a href="#examples">Examples</a>
+        <a href="#install">Install</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="shell">
+    <header class="hero">
+      <div class="eyebrow">Digital-twin humanizer for field communication</div>
+      <h1>Write like a credible human, not a corporate autocomplete.</h1>
+      <p class="lede">Field Voice helps CSAs and field teams turn rough drafts, AI-assisted text, meeting notes, or over-polished corporate language into communication that sounds specific, useful, and ready to send.</p>
+      <div class="actions">
+        <a class="button primary" href="#install">Install the skill</a>
+        <a class="button" href="#prompts">Copy prompts</a>
+        <a class="button" href="https://github.com/sacjain_microsoft/field-voice-skill">View on GitHub</a>
+      </div>
+    </header>
+
+    <section>
+      <div class="grid three">
+        <div class="card">
+          <div class="metric">10</div>
+          <h3>Communication modes</h3>
+          <p class="muted">Customer email, executive brief, Teams reply, LinkedIn post, deck copy, meeting follow-up, and more.</p>
+        </div>
+        <div class="card">
+          <div class="metric">4</div>
+          <h3>Rewrite strengths</h3>
+          <p class="muted">Light polish, medium rewrite, strong humanization, and voice match for personal style.</p>
+        </div>
+        <div class="card">
+          <div class="metric">0</div>
+          <h3>Invented facts</h3>
+          <p class="muted">The skill preserves meaning and flags missing evidence instead of creating fake proof.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="modes">
+      <h2>Mode-based rewriting</h2>
+      <p class="section-intro">Field Voice adapts the rewrite to the channel. A LinkedIn post should not sound like an executive brief. A Teams reply should not sound like a memo.</p>
+      <div class="grid two">
+        <div class="card"><h3>Customer email</h3><p class="muted">Warm, clear, professional, with a specific ask. Avoids internal-only reasoning.</p></div>
+        <div class="card"><h3>Executive brief</h3><p class="muted">Crisp, outcome-first, no fluff. Useful for status, signal, risk, ask, and next step.</p></div>
+        <div class="card"><h3>Teams reply</h3><p class="muted">Short, natural, conversational, and easy to send in chat.</p></div>
+        <div class="card"><h3>LinkedIn post</h3><p class="muted">Human, reflective, credible, and non-cringey. No corporate hype or engagement bait.</p></div>
+        <div class="card"><h3>Deck copy</h3><p class="muted">Tight, punchy, executive-readable slide titles, bullets, and talk tracks.</p></div>
+        <div class="card"><h3>Technical explanation</h3><p class="muted">Precise, plainspoken, jargon-aware, and low hype.</p></div>
+      </div>
+    </section>
+
+    <section id="profiles">
+      <h2>Individual voice profiles</h2>
+      <p class="section-intro">The default voice is direct and field-ready. The better version learns from the person's own writing and applies that pattern across modes.</p>
+      <table>
+        <thead><tr><th>Profile field</th><th>What it captures</th></tr></thead>
+        <tbody>
+          <tr><td>Role/context</td><td>CSA, DSSP, manager, specialist, partner-facing, customer-facing, internal operator</td></tr>
+          <tr><td>Default tone</td><td>Direct, warm, executive, technical, coach-like, conversational, reflective</td></tr>
+          <tr><td>Sentence rhythm</td><td>Short and punchy, balanced, narrative, structured, mixed</td></tr>
+          <tr><td>Vocabulary</td><td>Plainspoken, technical, business-oriented, relationship-oriented, strategic</td></tr>
+          <tr><td>CTA style</td><td>Soft nudge, clear ask, decision-oriented, next-step focused</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Rewrite strength</h2>
+      <table>
+        <thead><tr><th>Strength</th><th>Use when</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td>Light polish</td><td>The draft is mostly good</td><td>Fixes obvious AI tells, filler, and awkward phrasing.</td></tr>
+          <tr><td>Medium rewrite</td><td>The draft needs better tone and flow</td><td>Improves structure and clarity while preserving most intent.</td></tr>
+          <tr><td>Strong humanization</td><td>The draft sounds very AI-generated</td><td>Reworks structure and rhythm more aggressively.</td></tr>
+          <tr><td>Voice match</td><td>A writing sample is provided</td><td>Prioritizes matching the user's style.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="prompts">
+      <h2>Ready-to-use prompts</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Customer email</h3>
+          <div class="code">/field-voice
+
+Mode: customer email
+Rewrite strength: medium
+
+Rewrite this so it is warm, clear, and customer-ready. Keep the ask explicit and do not add facts.
+
+[paste email]</div>
+        </div>
+        <div class="card">
+          <h3>LinkedIn post</h3>
+          <div class="code">/field-voice
+
+Mode: LinkedIn post
+Rewrite strength: strong
+
+Make this sound like a real person. Keep it professional and reflective. Remove corporate hype, humblebragging, and engagement bait.
+
+[paste draft]</div>
+        </div>
+        <div class="card">
+          <h3>Executive update</h3>
+          <div class="code">/field-voice
+
+Mode: executive brief
+Rewrite strength: strong
+
+Turn this into a crisp leadership update. Pull out status, signal, risk, ask, and next step.
+
+[paste notes]</div>
+        </div>
+        <div class="card">
+          <h3>Voice profile</h3>
+          <div class="code">/field-voice
+
+Create my Field Voice profile from these samples. Capture my tone, sentence rhythm, CTA style, common phrases, and avoid list.
+
+Samples:
+[paste writing samples]</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples">
+      <h2>Before and after</h2>
+      <div class="compare">
+        <div class="card soft">
+          <h3>Too AI/corporate</h3>
+          <p>At its core, this initiative represents a pivotal opportunity to unlock transformative value across the enterprise data landscape.</p>
+        </div>
+        <div class="card soft">
+          <h3>Too casual</h3>
+          <p>Honestly, the model is not the problem here. The data is kind of a mess and nobody owns the thing.</p>
+        </div>
+        <div class="card status">
+          <h3>Field Voice</h3>
+          <p>This is worth doing, but the blocker is not the model. It is whether the team has clean enough data and a clear owner for the workflow.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Common AI tells it removes</h2>
+      <div class="tag-row">
+        <span class="tag">pivotal</span>
+        <span class="tag">unlock value</span>
+        <span class="tag">broader landscape</span>
+        <span class="tag">let's dive in</span>
+        <span class="tag">I hope this helps</span>
+        <span class="tag">not just X but Y</span>
+        <span class="tag">game changer</span>
+        <span class="tag">exciting times ahead</span>
+        <span class="tag">showcasing</span>
+        <span class="tag">serves as</span>
+      </div>
+    </section>
+
+    <section id="install">
+      <h2>Install</h2>
+      <p class="section-intro">Clone the repo into your local Clawpilot skills folder or copy <code>SKILL.md</code> into a skill folder named <code>field-voice</code>.</p>
+      <div class="card">
+        <div class="code">New-Item -ItemType Directory -Force "$env:USERPROFILE\.copilot\m-skills\field-voice"
+git clone https://github.com/sacjain_microsoft/field-voice-skill.git "$env:USERPROFILE\.copilot\m-skills\field-voice"</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Safety posture</h2>
+      <p class="section-intro">Field Voice drafts only. It does not send, post, publish, reply, forward, or update content without explicit user approval. It preserves customer confidentiality and avoids adding unsupported claims.</p>
+      <div class="grid three">
+        <div class="card"><h3>No invented proof</h3><p class="muted">No fake metrics, dates, sources, quotes, or customer details.</p></div>
+        <div class="card"><h3>No oversharing</h3><p class="muted">Private calendar, email, Teams, or internal rationale stays private.</p></div>
+        <div class="card"><h3>No over-humanizing</h3><p class="muted">Professional credibility beats slang, fake vulnerability, and performative personality.</p></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Field Voice is MIT licensed. Built for authentic, field-ready communication.</p>
+    </footer>
+  </main>
+</body>
+</html>
