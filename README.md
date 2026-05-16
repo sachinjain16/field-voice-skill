@@ -228,9 +228,11 @@ When the input includes customer, partner, employee, calendar, email, meeting, T
 - Do not send, post, publish, reply, forward, or update any content. Only draft unless the user explicitly asks to send and confirms recipients/content.
 - If the rewrite references private data, warn the user before any outbound action.
 
-## GitHub Pages
+## Skill page
 
 The project page lives in `docs/index.html`. It is a self-contained static HTML page using Clawpilot theme variables for light and dark mode.
+
+If your GitHub organization supports Pages for the target repository, publish the `docs` folder as the Pages source or deploy it through a GitHub Pages workflow. Some Enterprise Managed User accounts do not allow public repos or Pages for private repos; in that case, the page can still be opened locally or hosted from an approved internal site.
 
 ## License
 
