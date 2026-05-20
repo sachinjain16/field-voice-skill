@@ -330,9 +330,9 @@
           <p class="muted">Customer email, executive brief, Teams reply, LinkedIn post, deck copy, meeting follow-up, and more.</p>
         </div>
         <div class="card">
-          <div class="metric">4</div>
+          <div class="metric">5</div>
           <h3>Rewrite strengths</h3>
-          <p class="muted">Light polish, medium rewrite, strong humanization, and voice match for personal style.</p>
+          <p class="muted">Light polish, medium rewrite, strong humanization, voice match, and source-locked credibility mode.</p>
         </div>
         <div class="card">
           <div class="metric">0</div>
@@ -379,8 +379,34 @@
           <tr><td>Medium rewrite</td><td>The draft needs better tone and flow</td><td>Improves structure and clarity while preserving most intent.</td></tr>
           <tr><td>Strong humanization</td><td>The draft sounds very AI-generated</td><td>Reworks structure and rhythm more aggressively.</td></tr>
           <tr><td>Voice match</td><td>A writing sample is provided</td><td>Prioritizes matching the user's style.</td></tr>
+          <tr><td>Source-locked</td><td>Credibility risk is high</td><td>Improves tone without adding, removing, or altering facts, claims, citations, product names, owners, timelines, or commitments.</td></tr>
         </tbody>
       </table>
+    </section>
+
+    <section id="credibility">
+      <h2>Source-Locked Credibility Mode</h2>
+      <p class="section-intro">The V2 anchor feature: make the writing sound more human without making it less true. This mode is built for customer-facing and technical content where extra AI detail creates credibility risk.</p>
+      <div class="grid three">
+        <div class="card"><h3>Source-locked rewrite</h3><p class="muted">Rewrites only what is present. No new facts, dates, metrics, names, owners, claims, citations, or commitments.</p></div>
+        <div class="card"><h3>Citation handling</h3><p class="muted">Preserves provided citations, avoids new citations, and flags claims that need a source.</p></div>
+        <div class="card"><h3>Commitment check</h3><p class="muted">Flags timeline, pricing, availability, funding, support, approval, and delivery commitments.</p></div>
+      </div>
+      <div class="card" style="margin-top: 16px;">
+        <h3>Recommended prompt</h3>
+        <div class="code">/field-voice
+
+Mode: customer email
+Rewrite strength: source-locked
+Credibility mode: on
+Citation handling: preserve provided; do not add new; flag missing
+Detail policy: trim unnecessary; do not add facts
+Commitment check: on
+
+Make this customer-ready without adding new facts, dates, owners, claims, citations, or commitments.
+
+[paste draft]</div>
+      </div>
     </section>
 
     <section id="prompts">
@@ -394,6 +420,19 @@ Mode: customer email
 Rewrite strength: medium
 
 Rewrite this so it is warm, clear, and customer-ready. Keep the ask explicit and do not add facts.
+
+[paste email]</div>
+        </div>
+        <div class="card">
+          <h3>Source-locked customer email</h3>
+          <div class="code">/field-voice
+
+Mode: customer email
+Rewrite strength: source-locked
+Credibility mode: on
+Citation handling: preserve provided; do not add new; flag missing
+Detail policy: trim unnecessary; do not add facts
+Commitment check: on
 
 [paste email]</div>
         </div>

@@ -1,6 +1,6 @@
 ---
 name: field-voice
-version: 1.0.0
+version: 1.1.0
 description: |
   A digital-twin humanizer for CSA and field communication. Rewrites rough,
   AI-sounding, or over-polished text into authentic, channel-appropriate
@@ -25,6 +25,7 @@ Positioning: this is not an AI-detector evasion tool. It is an authentic communi
 6. Do not over-humanize. Avoid slang, jokes, fake vulnerability, excessive first person, or casual phrasing unless the user asks for that style.
 7. Prefer field-ready clarity: specific, credible, practical, and easy to act on.
 8. Return ready-to-paste content unless the user asks for analysis.
+9. When credibility matters, improve tone without changing the factual surface area of the input.
 
 ## When to use
 
@@ -117,6 +118,73 @@ Apply the requested strength if provided. If not provided, default to Medium.
 - Medium rewrite: improve flow, tone, and specificity while preserving structure.
 - Strong humanization: restructure as needed so it sounds written by a credible person.
 - Voice match: prioritize matching the supplied voice sample while preserving facts and audience fit.
+- Source-locked: improve tone and flow without adding, removing, or altering facts, names, dates, numbers, product names, claims, citations, owners, next steps, or commitments. This is the recommended default for customer-facing and technical content when trust risk is high.
+
+## Source-Locked Credibility Mode
+
+Use Source-Locked Credibility Mode when the user asks for source-locked, credibility mode, customer-safe, citation-safe, no new details, do not add facts, commitment check, or similar language.
+
+This mode exists to answer one field-team problem: make the writing sound more human without making it less true.
+
+When active:
+
+- Rewrite only what is present in the input.
+- Do not add facts, examples, names, dates, numbers, sources, claims, citations, commitments, owners, next steps, product capabilities, or customer details.
+- Preserve product names, SKU names, technical terms, version numbers, metrics, links, and quoted language exactly unless the user asks to change them.
+- Preserve load-bearing qualifiers such as may, might, likely, depending on scope, subject to review, based on current information, and pending confirmation.
+- Prefer concise, defensible wording over impressive or expansive wording.
+- Remove detail that sounds smart but does not support the point, ask, or decision.
+- Flag unsupported claims instead of strengthening or sourcing them.
+
+### Credibility mode
+
+If the user specifies `Credibility mode: on`, prioritize:
+
+- Specificity over polish
+- Brevity over fullness
+- Evidence over enthusiasm
+- Accurate uncertainty over confidence
+- Customer-safe language over personality
+- Clear ask over broad narrative
+
+### Citation handling
+
+Support these citation handling options:
+
+- Preserve provided citations: keep existing links, source names, references, and quotes attached to the same claims.
+- Do not add new citations: never introduce a source that was not in the input.
+- Flag missing citations: mark unsupported claims as `[needs source]` or mention them in the credibility report.
+- Remove citations: only if the user asks; do not remove the factual claim unless removing it is necessary for safety or clarity.
+- Citation-aware summary: keep source references next to the claims they support.
+
+Default for customer-facing and technical content: preserve provided citations, do not add new citations, and flag unsupported claims.
+
+### Detail policy
+
+Support these detail policies:
+
+- No new details: transform wording only.
+- Trim unnecessary detail: remove filler, extra explanation, and unsupported elaboration.
+- Keep useful detail: preserve concrete details that support the point or ask.
+- Expand only with placeholders: use placeholders such as `[confirm date]`, `[add source]`, `[insert owner]` instead of inventing missing details.
+- Executive compression: reduce to signal, risk, ask, and next step using only provided content.
+
+Default for customer-facing content: no new details and trim unnecessary detail.
+
+### Commitment risk check
+
+For customer email, customer meeting follow-up, executive brief, manager update, and technical explanation modes, flag any new or ambiguous commitment around:
+
+- Delivery dates or timelines
+- Pricing or discounts
+- SKU, feature, region, or product availability
+- Engineering, support, or escalation ownership
+- Security, compliance, legal, or procurement approval
+- Funding approval
+- Partner or customer actions
+- Performance, cost, productivity, or risk-reduction outcomes
+
+If a commitment is present in the input, preserve the wording and do not strengthen it. If the rewrite would imply a stronger commitment, soften it or flag it.
 
 ## AI writing patterns to remove
 
@@ -181,6 +249,15 @@ If the user asks for a reusable voice profile, provide:
 4. CTA pattern
 5. Example prompt to reuse
 
+If Source-Locked Credibility Mode, citation handling, detail policy, or commitment check finds risk, include a brief credibility report after the rewrite:
+
+1. No new facts added, or list any removed/flagged unsupported detail
+2. Citation handling result
+3. Commitment risk result
+4. Preserved qualifiers or product names, if relevant
+
+Do not include the credibility report when there are no risks and the user asked for ready-to-paste output only, unless they explicitly requested the check.
+
 ## Prompt patterns the skill should support
 
 - "Humanize this. Mode: customer email. Strength: medium."
@@ -191,6 +268,9 @@ If the user asks for a reusable voice profile, provide:
 - "Polish this deck slide without adding fluff."
 - "Create a voice profile from this writing sample."
 - "Give me three versions: direct, warmer, and executive concise."
+- "Rewrite this source-locked. Do not add any facts."
+- "Credibility mode: on. Preserve citations and flag unsupported claims."
+- "Trim unnecessary detail and run a commitment check."
 
 ## Quality bar
 
@@ -202,5 +282,8 @@ Before finalizing, perform an internal audit:
 - Is the ask clear?
 - Is the output ready to paste?
 - Did I avoid inventing proof, metrics, or commitments?
+- Did I preserve citations, product names, dates, numbers, and load-bearing qualifiers?
+- Did I introduce or strengthen any commitment?
+- Did I add useful-sounding but unsupported detail?
 
 Revise until the answer passes that audit.

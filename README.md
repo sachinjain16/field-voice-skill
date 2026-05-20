@@ -53,6 +53,85 @@ Rewrite this so it is warm, clear, and customer-ready. Keep the ask explicit and
 | Medium rewrite | The draft needs better tone and flow | Improves structure and clarity while preserving most intent |
 | Strong humanization | The draft sounds very AI-generated | Reworks structure and rhythm more aggressively |
 | Voice match | A writing sample is provided | Prioritizes matching the user's style |
+| Source-locked | Customer-facing or technical content where credibility risk is high | Improves tone without adding, removing, or altering facts, claims, citations, product names, owners, timelines, or commitments |
+
+## Source-Locked Credibility Mode
+
+Source-Locked Credibility Mode is the V2 anchor feature. It improves tone without changing the factual surface area of the input.
+
+Use it when a rewrite needs to be customer-safe, citation-safe, technically precise, or defensible.
+
+```text
+/field-voice
+
+Mode: customer email
+Rewrite strength: source-locked
+Credibility mode: on
+Citation handling: preserve provided; do not add new; flag missing
+Detail policy: trim unnecessary; do not add facts
+Commitment check: on
+
+[paste draft]
+```
+
+When active, Field Voice:
+
+- Rewrites only what is present in the input
+- Does not add facts, examples, names, dates, numbers, sources, claims, citations, owners, next steps, or commitments
+- Preserves product names, SKU names, technical terms, version numbers, metrics, links, and quoted language
+- Preserves load-bearing qualifiers such as `may`, `likely`, `depending on scope`, `subject to review`, and `pending confirmation`
+- Removes useful-sounding but unnecessary detail
+- Flags unsupported claims instead of strengthening them
+- Checks for accidental commitments around timeline, pricing, availability, funding, support, security, or delivery
+
+### Citation handling
+
+| Option | Behavior |
+|---|---|
+| Preserve provided citations | Keep existing links, references, source names, and quotes attached to the same claims |
+| Do not add new citations | Never introduce a source that was not in the input |
+| Flag missing citations | Mark unsupported claims as `[needs source]` or list them in the credibility report |
+| Remove citations | Remove citations only when explicitly requested |
+| Citation-aware summary | Keep sources next to the claims they support |
+
+Default for customer-facing and technical content:
+
+```text
+Citation handling: preserve provided; do not add new; flag missing
+```
+
+### Detail policy
+
+| Policy | Behavior |
+|---|---|
+| No new details | Transform wording only |
+| Trim unnecessary detail | Remove filler, extra explanation, and unsupported elaboration |
+| Keep useful detail | Preserve concrete details that support the point or ask |
+| Expand only with placeholders | Use `[confirm date]`, `[add source]`, or `[insert owner]` instead of inventing missing details |
+| Executive compression | Reduce to signal, risk, ask, and next step using only provided content |
+
+### Commitment risk check
+
+Field Voice flags new or ambiguous commitments around:
+
+- Delivery dates or timelines
+- Pricing or discounts
+- SKU, feature, region, or product availability
+- Engineering, support, or escalation ownership
+- Security, compliance, legal, or procurement approval
+- Funding approval
+- Partner or customer actions
+- Performance, cost, productivity, or risk-reduction outcomes
+
+Example credibility report:
+
+```text
+Credibility check:
+- No new facts added.
+- Preserved uncertainty around service fit.
+- No timeline, pricing, or delivery commitment introduced.
+- Removed broad claims about "unlocking transformation."
+```
 
 ## Individual voice profiles
 
@@ -147,6 +226,23 @@ Mode: customer email
 Rewrite strength: medium
 
 Rewrite this so it is warm, clear, and customer-ready. Keep the ask explicit and do not add facts.
+
+[paste email]
+```
+
+### Source-locked customer email
+
+```text
+/field-voice
+
+Mode: customer email
+Rewrite strength: source-locked
+Credibility mode: on
+Citation handling: preserve provided; do not add new; flag missing
+Detail policy: trim unnecessary; do not add facts
+Commitment check: on
+
+Make this customer-ready without adding new facts, dates, owners, claims, citations, or commitments.
 
 [paste email]
 ```
