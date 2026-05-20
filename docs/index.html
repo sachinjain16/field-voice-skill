@@ -301,6 +301,7 @@
     <div class="nav-inner">
       <div class="brand">Field Voice</div>
       <div class="nav-links">
+        <a href="#presets">Presets</a>
         <a href="#modes">Modes</a>
         <a href="#profiles">Profiles</a>
         <a href="#prompts">Prompts</a>
@@ -325,9 +326,9 @@
     <section>
       <div class="grid three">
         <div class="card">
-          <div class="metric">10</div>
-          <h3>Communication modes</h3>
-          <p class="muted">Customer email, executive brief, Teams reply, LinkedIn post, deck copy, meeting follow-up, and more.</p>
+          <div class="metric">9</div>
+          <h3>Field Voice Presets</h3>
+          <p class="muted">One-line bundles for customer-safe email, executive briefs, LinkedIn posts, Teams replies, and more.</p>
         </div>
         <div class="card">
           <div class="metric">5</div>
@@ -339,6 +340,27 @@
           <h3>Invented facts</h3>
           <p class="muted">The skill preserves meaning and flags missing evidence instead of creating fake proof.</p>
         </div>
+      </div>
+    </section>
+
+    <section id="presets">
+      <h2>Field Voice Presets</h2>
+      <p class="section-intro">Presets bundle the detailed settings so field teams do not have to remember every option. Use one line, paste the draft, and let the preset expand behind the scenes.</p>
+      <div class="grid three">
+        <div class="card"><h3>CSA customer-safe</h3><p class="muted">Customer email, source-locked, credibility on, citations preserved, detail trimmed, commitment check on.</p></div>
+        <div class="card"><h3>CSA decision ask</h3><p class="muted">Customer-safe plus a clearer ask when a decision or next step is needed.</p></div>
+        <div class="card"><h3>Customer follow-up</h3><p class="muted">Meeting follow-up mode with decisions, open questions, and actions only.</p></div>
+        <div class="card"><h3>Executive brief</h3><p class="muted">Executive-facing compression into signal, risk, ask, and next step.</p></div>
+        <div class="card"><h3>Technical credible</h3><p class="muted">Specialist lens, exact product names, no new facts, missing citations flagged.</p></div>
+        <div class="card"><h3>LinkedIn human</h3><p class="muted">Public-safe, reflective, non-hype, and no invented events or customer details.</p></div>
+      </div>
+      <div class="card" style="margin-top: 16px;">
+        <h3>Preset-first prompt</h3>
+        <div class="code">/field-voice
+
+Preset: CSA customer-safe
+
+[paste draft]</div>
       </div>
     </section>
 
@@ -412,6 +434,24 @@ Make this customer-ready without adding new facts, dates, owners, claims, citati
     <section id="prompts">
       <h2>Ready-to-use prompts</h2>
       <div class="grid two">
+        <div class="card">
+          <h3>Preset: CSA customer-safe</h3>
+          <div class="code">/field-voice
+
+Preset: CSA customer-safe
+
+[paste draft]</div>
+        </div>
+        <div class="card">
+          <h3>Preset + profile</h3>
+          <div class="code">/field-voice
+
+Profile: Sac
+Preset: CSA decision ask
+Make it a little warmer.
+
+[paste draft]</div>
+        </div>
         <div class="card">
           <h3>Customer email</h3>
           <div class="code">/field-voice

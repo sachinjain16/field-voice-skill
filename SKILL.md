@@ -1,6 +1,6 @@
 ---
 name: field-voice
-version: 1.1.0
+version: 1.2.0
 description: |
   A digital-twin humanizer for CSA and field communication. Rewrites rough,
   AI-sounding, or over-polished text into authentic, channel-appropriate
@@ -38,6 +38,7 @@ Use this skill when the user asks to:
 - Polish a customer email, Teams reply, LinkedIn post, executive update, deck copy, meeting follow-up, manager update, or technical explanation
 - Create or apply a personal voice profile
 - Remove corporate fluff, AI sludge, consultant-speak, or robotic phrasing
+- Use a Field Voice Preset such as CSA customer-safe, Executive brief, LinkedIn human, Teams quick reply, or Technical credible
 
 ## Individual voice profiles
 
@@ -65,6 +66,185 @@ If no profile is provided, use the default Field Voice profile:
 - Low fluff, low hype
 - Plainspoken but professional
 - Credible for customer, partner, and internal audiences
+
+## Field Voice Presets
+
+Field Voice Presets bundle the detailed settings so users do not need to remember every option. If the user provides a preset, expand it behind the scenes and apply those settings before rewriting.
+
+Preset usage:
+
+```text
+Preset: CSA customer-safe
+```
+
+or:
+
+```text
+Profile: [name or pasted profile]
+Preset: CSA decision ask
+```
+
+Apply settings in this order:
+
+1. Preset sets the default bundle.
+2. Role pack refines the professional lens.
+3. Mode refines output format.
+4. Personal profile refines voice.
+5. Explicit user instructions override style preferences.
+6. Safety, privacy, source-locking, and credibility rules always win.
+
+If profile and preset conflict, preserve safety and factual accuracy first, then audience fit, then personal voice.
+
+### Preset catalog
+
+#### CSA customer-safe
+
+Use for customer-ready emails or messages where credibility and trust matter.
+
+- Role pack: CSA
+- Mode: customer email
+- Rewrite strength: source-locked
+- Credibility mode: on
+- Citation handling: preserve provided; do not add new; flag missing
+- Detail policy: trim unnecessary; do not add facts
+- Commitment check: on
+- Audience temperature: normal
+
+#### CSA decision ask
+
+Use when the customer needs to make a decision or confirm a next step.
+
+- Role pack: CSA
+- Mode: customer email
+- Rewrite strength: source-locked
+- Credibility mode: on
+- Citation handling: preserve provided; do not add new; flag missing
+- Detail policy: trim unnecessary; do not add facts
+- Commitment check: on
+- Audience temperature: decision needed
+- CTA style: clear ask
+
+#### Customer follow-up
+
+Use after a customer or partner meeting.
+
+- Role pack: CSA
+- Mode: customer meeting follow-up
+- Rewrite strength: source-locked
+- Credibility mode: on
+- Citation handling: preserve provided; do not add new; flag missing
+- Detail policy: preserve decisions, open questions, and actions only
+- Commitment check: on
+- Audience temperature: normal
+
+#### Executive brief
+
+Use for leadership-ready updates, ROB notes, forecast notes, and business reviews.
+
+- Role pack: executive-facing
+- Mode: executive brief
+- Rewrite strength: medium
+- Credibility mode: on
+- Citation handling: preserve provided; do not add new; flag missing
+- Detail policy: executive compression
+- Commitment check: on
+- Audience temperature: executive
+
+#### Manager update
+
+Use for manager/status updates where the point is progress, risk, and ask.
+
+- Role pack: CSA Manager
+- Mode: manager update
+- Rewrite strength: medium
+- Credibility mode: on
+- Citation handling: preserve provided; do not add new
+- Detail policy: signal, risk, ask, next step
+- Commitment check: on
+- Audience temperature: executive
+
+#### Technical credible
+
+Use for architecture, migration, security, AI, data, or platform explanations.
+
+- Role pack: Specialist
+- Mode: technical explanation
+- Rewrite strength: source-locked
+- Credibility mode: on
+- Citation handling: preserve provided; do not add new; flag missing
+- Detail policy: no new details
+- Commitment check: on
+- Preserve exact product, SKU, version, region, and service names
+
+#### LinkedIn human
+
+Use for public professional posts.
+
+- Role pack: community/public
+- Mode: LinkedIn post
+- Rewrite strength: strong humanization
+- Credibility mode: on
+- Citation handling: preserve provided; do not add new
+- Detail policy: do not invent events, names, dates, claims, or customer details
+- Commitment check: off unless customer, partner, or Microsoft commitments are mentioned
+- Avoid engagement bait, corporate hype, humblebragging, and excessive hashtags
+
+#### Teams quick reply
+
+Use for fast internal responses.
+
+- Mode: Teams reply
+- Rewrite strength: light polish
+- Detail policy: no new details
+- Audience temperature: normal
+- Max length: 3 lines unless the user asks for more detail
+
+#### Deck sharpen
+
+Use for slide titles, bullets, and talk tracks.
+
+- Mode: deck copy
+- Rewrite strength: medium
+- Credibility mode: on
+- Detail policy: executive compression
+- Citation handling: preserve provided
+- Preserve slide intent and reduce word count
+
+### Preset examples
+
+```text
+/field-voice
+
+Preset: CSA customer-safe
+
+[paste draft]
+```
+
+```text
+/field-voice
+
+Profile: Sac
+Preset: CSA decision ask
+Make it a little warmer.
+
+[paste draft]
+```
+
+```text
+/field-voice
+
+Preset: Technical credible
+
+[paste technical explanation]
+```
+
+```text
+/field-voice
+
+Preset: LinkedIn human
+
+[paste post draft]
+```
 
 ## Modes
 
@@ -271,6 +451,9 @@ Do not include the credibility report when there are no risks and the user asked
 - "Rewrite this source-locked. Do not add any facts."
 - "Credibility mode: on. Preserve citations and flag unsupported claims."
 - "Trim unnecessary detail and run a commitment check."
+- "Preset: CSA customer-safe."
+- "Preset: Executive brief."
+- "Profile: [name]. Preset: CSA decision ask."
 
 ## Quality bar
 

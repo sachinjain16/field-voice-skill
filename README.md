@@ -22,13 +22,75 @@ Or copy `SKILL.md` into a local Clawpilot skill folder named `field-voice`.
 ```text
 /field-voice
 
-Mode: customer email
-Rewrite strength: medium
-
-Rewrite this so it is warm, clear, and customer-ready. Keep the ask explicit and do not add facts.
+Preset: CSA customer-safe
 
 [paste draft]
 ```
+
+Field Voice Presets are the recommended way to use the skill. A preset bundles the role pack, mode, rewrite strength, credibility controls, citation behavior, detail policy, commitment checks, and audience temperature so users do not have to remember every setting.
+
+## Field Voice Presets
+
+| Preset | Best for | Bundled behavior |
+|---|---|---|
+| CSA customer-safe | Customer-ready email or message | CSA role, customer email mode, source-locked, credibility on, preserve citations, trim detail, commitment check |
+| CSA decision ask | Customer needs to confirm a decision or next step | CSA customer-safe plus decision-needed audience temperature and clear CTA |
+| Customer follow-up | Recap after a customer or partner meeting | Meeting follow-up mode, source-locked, decisions/open questions/actions only |
+| Executive brief | Leadership update, ROB, forecast note | Executive-facing, executive compression, signal/risk/ask/next step |
+| Manager update | Weekly/status update | CSA Manager lens, progress/risk/ask, commitment check |
+| Technical credible | Architecture, migration, AI, security, data | Specialist lens, source-locked, preserve product names, flag missing citations |
+| LinkedIn human | Professional public post | Human, reflective, non-hype, no invented events or claims |
+| Teams quick reply | Internal chat | Light polish, no new details, max 3 lines |
+| Deck sharpen | Slide title, bullet, talk track | Deck copy mode, executive compression, fewer words |
+
+### Preset examples
+
+```text
+/field-voice
+
+Preset: CSA customer-safe
+
+[paste draft]
+```
+
+```text
+/field-voice
+
+Profile: Sac
+Preset: CSA decision ask
+Make it a little warmer.
+
+[paste draft]
+```
+
+```text
+/field-voice
+
+Preset: Technical credible
+
+[paste architecture or technical explanation]
+```
+
+```text
+/field-voice
+
+Preset: LinkedIn human
+
+[paste LinkedIn draft]
+```
+
+### How presets resolve
+
+Field Voice applies settings in this order:
+
+1. Preset sets the default bundle.
+2. Role pack refines the professional lens.
+3. Mode refines output format.
+4. Personal profile refines voice.
+5. Explicit user instructions override style preferences.
+6. Safety, privacy, source-locking, and credibility rules always win.
+
+If profile and preset conflict, safety wins over voice.
 
 ## Modes
 
@@ -216,6 +278,8 @@ At its core, this initiative represents a pivotal opportunity to unlock transfor
 ```
 
 ## Prompt examples
+
+More copy/paste examples are available in [`examples/preset-prompts.md`](examples/preset-prompts.md).
 
 ### Customer email
 
