@@ -1,6 +1,6 @@
 # Field Voice
 
-Field Voice is a digital-twin humanizer for CSA and field communication. It rewrites rough, AI-sounding, or over-polished text into authentic, channel-appropriate communication while preserving facts, intent, and professional credibility.
+Field Voice is a digital-twin humanizer for Cloud Architects and field communication. It rewrites rough, AI-sounding, or over-polished text into authentic, channel-appropriate communication while preserving facts, intent, and professional credibility.
 
 It is designed for customer emails, executive briefs, Teams replies, LinkedIn posts, deck copy, meeting follow-ups, manager updates, technical explanations, personal notes, and public announcements.
 
@@ -33,11 +33,11 @@ Field Voice Presets are the recommended way to use the skill. A preset bundles t
 
 | Preset | Best for | Bundled behavior |
 |---|---|---|
-| CSA customer-safe | Customer-ready email or message | CSA role, customer email mode, source-locked, credibility on, preserve citations, trim detail, commitment check |
-| CSA decision ask | Customer needs to confirm a decision or next step | CSA customer-safe plus decision-needed audience temperature and clear CTA |
+| Cloud Architects customer-safe | Customer-ready email or message | Cloud Architect role, customer email mode, source-locked, credibility on, preserve citations, trim detail, commitment check |
+| Cloud Architect decision ask | Customer needs to confirm a decision or next step | Cloud Architect customer-safe plus decision-needed audience temperature and clear CTA |
 | Customer follow-up | Recap after a customer or partner meeting | Meeting follow-up mode, source-locked, decisions/open questions/actions only |
 | Executive brief | Leadership update, ROB, forecast note | Executive-facing, executive compression, signal/risk/ask/next step |
-| Manager update | Weekly/status update | CSA Manager lens, progress/risk/ask, commitment check |
+| Manager update | Weekly/status update | Cloud Architect Manager lens, progress/risk/ask, commitment check |
 | Technical credible | Architecture, migration, AI, security, data | Specialist lens, source-locked, preserve product names, flag missing citations |
 | LinkedIn human | Professional public post | Human, reflective, non-hype, no invented events or claims |
 | Teams quick reply | Internal chat | Light polish, no new details, max 3 lines |
@@ -56,8 +56,8 @@ Preset: CSA customer-safe
 ```text
 /field-voice
 
-Profile: Sac
-Preset: CSA decision ask
+Profile: Work
+Preset: Cloud Architect decision ask
 Make it a little warmer.
 
 [paste draft]
