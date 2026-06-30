@@ -16,7 +16,7 @@
 ## Marketplace fields
 
 - [ ] Title: `Field Voice`
-- [ ] Subtitle: `Digital-twin humanizer for CSA and field communication`
+- [ ] Subtitle: `Vendor-neutral humanizer for professional communication`
 - [ ] Short description copied from `assets\short-description.txt`
 - [ ] Long description copied from `marketplace-listing.md`
 - [ ] Category selected
@@ -40,8 +40,8 @@
 Run these before submitting:
 
 ```powershell
-Set-Location "C:\Users\sacjain\OneDrive - Microsoft\Documents\Clawpilot\field-voice-skill"
+Set-Location "[REPO_PATH]"
 git status --short
 git --no-pager log --oneline -3
-Compress-Archive -Force -Path SKILL.md, README.md, LICENSE, examples, docs, marketplace-submission -DestinationPath field-voice-smb-marketplace-submission.zip
+Compress-Archive -Force -Path SKILL.md, README.md, LICENSE, examples, docs, marketplace-submission -DestinationPath field-voice-marketplace-submission.zip
 ```

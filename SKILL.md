@@ -2,16 +2,17 @@
 name: field-voice
 version: 1.2.0
 description: |
-  A digital-twin humanizer for CSA and field communication. Rewrites rough,
-  AI-sounding, or over-polished text into authentic, channel-appropriate
-  communication while preserving facts, intent, and professional credibility.
+  A vendor-neutral humanizer for client-facing, executive, technical, public,
+  and internal communication. Rewrites rough, AI-sounding, or over-polished
+  text into authentic, channel-appropriate communication while preserving
+  facts, intent, and professional credibility.
 license: MIT
 compatibility: clawpilot
 ---
 
 # Field Voice
 
-Field Voice is a digital-twin humanizer for CSA and field communication. It rewrites AI-sounding or rough text into authentic, useful, channel-appropriate communication while preserving facts, intent, and professional credibility.
+Field Voice is a vendor-neutral humanizer for professional communication. It rewrites AI-sounding or rough text into authentic, useful, channel-appropriate communication while preserving facts, intent, and professional credibility.
 
 Positioning: this is not an AI-detector evasion tool. It is an authentic communication tuning skill. It removes synthetic residue, sharpens the point, adapts to the channel, and helps the user sound like themselves.
 
@@ -23,7 +24,7 @@ Positioning: this is not an AI-detector evasion tool. It is an authentic communi
 4. Keep customer, partner, and organization-sensitive details safe.
 5. Do not invent facts, metrics, quotes, customer details, names, sources, or commitments.
 6. Do not over-humanize. Avoid slang, jokes, fake vulnerability, excessive first person, or casual phrasing unless the user asks for that style.
-7. Prefer field-ready clarity: specific, credible, practical, and easy to act on.
+7. Prefer business-ready clarity: specific, credible, practical, and easy to act on.
 8. Return ready-to-paste content unless the user asks for analysis.
 9. When credibility matters, improve tone without changing the factual surface area of the input.
 
@@ -35,10 +36,10 @@ Use this skill when the user asks to:
 - Make writing sound less AI-generated
 - Rewrite in their voice
 - Make text sound more natural
-- Polish a customer email, Teams reply, LinkedIn post, executive update, deck copy, meeting follow-up, manager update, or technical explanation
+- Polish a client email, chat reply, LinkedIn post, executive update, deck copy, meeting follow-up, manager update, or technical explanation
 - Create or apply a personal voice profile
 - Remove corporate fluff, AI sludge, consultant-speak, or robotic phrasing
-- Use a Field Voice Preset such as CSA customer-safe, Executive brief, LinkedIn human, Teams quick reply, or Technical credible
+- Use a Field Voice Preset such as Client-safe, Decision ask, Executive brief, LinkedIn human, Quick reply, or Technical credible
 
 ## Individual voice profiles
 
@@ -46,7 +47,7 @@ If the user provides a writing sample, build a temporary voice profile for the c
 
 Analyze these dimensions:
 
-- Role/context: CSA, DSSP, manager, specialist, partner-facing, customer-facing, internal operator
+- Role/context: client advisor, account owner, technical specialist, people manager, partner-facing, customer-facing, executive-facing, internal operator, public/community
 - Default tone: direct, warm, executive, technical, coach-like, conversational, reflective
 - Sentence rhythm: short and punchy, balanced, narrative, structured, mixed
 - Paragraph style: context-first, answer-first, story-first, ask-first, outcome-first
@@ -55,7 +56,7 @@ Analyze these dimensions:
 - Common phrases: phrases the user naturally uses
 - Avoid list: phrases the user dislikes or overuses
 - CTA style: soft nudge, clear ask, decision-oriented, next-step focused
-- Formality: Teams casual, customer professional, executive concise, public polished
+- Formality: chat casual, customer professional, executive concise, public polished
 
 If no profile is provided, use the default Field Voice profile:
 
@@ -67,6 +68,19 @@ If no profile is provided, use the default Field Voice profile:
 - Plainspoken but professional
 - Credible for customer, partner, and internal audiences
 
+## Role packs
+
+Role packs provide a professional lens without tying Field Voice to a specific company or job title.
+
+- Client advisor: trusted advisor for customer or client-facing communication.
+- Account owner: relationship, commercial, renewal, or growth-oriented communication.
+- Technical specialist: architecture, migration, security, AI, data, platform, or engineering explanation.
+- People manager: internal updates, coaching, risk, blockers, asks, and decision framing.
+- Executive-facing: concise leadership communication focused on signal, risk, decision, and next step.
+- Partner/channel: partner, vendor, alliance, or ecosystem communication.
+- Public/community: public posts, announcements, thought leadership, and community writing.
+- Internal operator: cross-functional updates, project notes, status, and action-oriented collaboration.
+
 ## Field Voice Presets
 
 Field Voice Presets bundle the detailed settings so users do not need to remember every option. If the user provides a preset, expand it behind the scenes and apply those settings before rewriting.
@@ -74,14 +88,14 @@ Field Voice Presets bundle the detailed settings so users do not need to remembe
 Preset usage:
 
 ```text
-Preset: CSA customer-safe
+Preset: Client-safe
 ```
 
 or:
 
 ```text
 Profile: [name or pasted profile]
-Preset: CSA decision ask
+Preset: Decision ask
 ```
 
 Apply settings in this order:
@@ -97,11 +111,11 @@ If profile and preset conflict, preserve safety and factual accuracy first, then
 
 ### Preset catalog
 
-#### CSA customer-safe
+#### Client-safe
 
 Use for customer-ready emails or messages where credibility and trust matter.
 
-- Role pack: CSA
+- Role pack: Client advisor
 - Mode: customer email
 - Rewrite strength: source-locked
 - Credibility mode: on
@@ -110,11 +124,11 @@ Use for customer-ready emails or messages where credibility and trust matter.
 - Commitment check: on
 - Audience temperature: normal
 
-#### CSA decision ask
+#### Decision ask
 
 Use when the customer needs to make a decision or confirm a next step.
 
-- Role pack: CSA
+- Role pack: Client advisor
 - Mode: customer email
 - Rewrite strength: source-locked
 - Credibility mode: on
@@ -128,7 +142,7 @@ Use when the customer needs to make a decision or confirm a next step.
 
 Use after a customer or partner meeting.
 
-- Role pack: CSA
+- Role pack: Client advisor
 - Mode: customer meeting follow-up
 - Rewrite strength: source-locked
 - Credibility mode: on
@@ -154,7 +168,7 @@ Use for leadership-ready updates, ROB notes, forecast notes, and business review
 
 Use for manager/status updates where the point is progress, risk, and ask.
 
-- Role pack: CSA Manager
+- Role pack: People manager
 - Mode: manager update
 - Rewrite strength: medium
 - Credibility mode: on
@@ -186,14 +200,14 @@ Use for public professional posts.
 - Credibility mode: on
 - Citation handling: preserve provided; do not add new
 - Detail policy: do not invent events, names, dates, claims, or customer details
-- Commitment check: off unless customer, partner, or Microsoft commitments are mentioned
+- Commitment check: off unless customer, partner, vendor, or organization commitments are mentioned
 - Avoid engagement bait, corporate hype, humblebragging, and excessive hashtags
 
-#### Teams quick reply
+#### Quick reply
 
 Use for fast internal responses.
 
-- Mode: Teams reply
+- Mode: chat reply
 - Rewrite strength: light polish
 - Detail policy: no new details
 - Audience temperature: normal
@@ -215,7 +229,7 @@ Use for slide titles, bullets, and talk tracks.
 ```text
 /field-voice
 
-Preset: CSA customer-safe
+Preset: Client-safe
 
 [paste draft]
 ```
@@ -224,7 +238,7 @@ Preset: CSA customer-safe
 /field-voice
 
 Profile: Sac
-Preset: CSA decision ask
+Preset: Decision ask
 Make it a little warmer.
 
 [paste draft]
@@ -252,13 +266,13 @@ Infer the mode from the user request. If unclear, default to the mode that match
 
 ### Customer email
 
-Use for external customer or partner communication. Tone: warm, clear, professional, specific. Keep asks explicit. Avoid oversharing internal reasoning. Do not expose private calendar, email, Teams, or customer data unless the user explicitly included it for that purpose.
+Use for external customer or partner communication. Tone: warm, clear, professional, specific. Keep asks explicit. Avoid oversharing internal reasoning. Do not expose private calendar, email, chat, or customer data unless the user explicitly included it for that purpose.
 
 ### Executive brief
 
 Use for leadership updates, ROB notes, forecast updates, business reviews, or executive summaries. Tone: crisp, outcome-first, no fluff. Use short sections such as Situation, Signal, Risk, Ask, Next step when helpful.
 
-### Teams reply
+### Chat reply
 
 Use for internal chat. Tone: short, natural, conversational. Keep it easy to send. Avoid sounding like a memo.
 
@@ -397,7 +411,7 @@ Watch for and fix:
 
 ## Safety and privacy
 
-When the input includes customer, partner, employee, calendar, email, meeting, Teams, or document-derived content:
+When the input includes customer, partner, employee, calendar, email, meeting, chat, or document-derived content:
 
 - Preserve confidentiality.
 - Do not add sensitive details.
@@ -444,16 +458,16 @@ Do not include the credibility report when there are no risks and the user asked
 - "Rewrite this in my voice. Use the sample below."
 - "Make this LinkedIn post sound like a real person, not corporate AI."
 - "Turn this into an executive-ready update."
-- "Make this Teams reply shorter and more natural."
+- "Make this chat reply shorter and more natural."
 - "Polish this deck slide without adding fluff."
 - "Create a voice profile from this writing sample."
 - "Give me three versions: direct, warmer, and executive concise."
 - "Rewrite this source-locked. Do not add any facts."
 - "Credibility mode: on. Preserve citations and flag unsupported claims."
 - "Trim unnecessary detail and run a commitment check."
-- "Preset: CSA customer-safe."
+- "Preset: Client-safe."
 - "Preset: Executive brief."
-- "Profile: [name]. Preset: CSA decision ask."
+- "Profile: [name]. Preset: Decision ask."
 
 ## Quality bar
 

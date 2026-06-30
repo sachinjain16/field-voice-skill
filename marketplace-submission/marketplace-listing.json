@@ -2,22 +2,22 @@
   "name": "field-voice",
   "displayName": "Field Voice",
   "version": "1.2.0",
-  "subtitle": "Digital-twin humanizer for CSA and field communication",
-  "shortDescription": "Rewrite rough or AI-sounding field communication into authentic, customer-safe, channel-ready messages without inventing facts.",
-  "longDescription": "Field Voice helps CSAs, DSSPs, specialists, managers, and field teams turn rough drafts, meeting notes, AI-generated copy, and over-polished text into credible communication that sounds like a real person. It supports customer emails, executive briefs, Teams replies, LinkedIn posts, deck copy, customer meeting follow-ups, manager updates, and technical explanations while preserving facts, citations, product names, commitments, and intent.",
+  "subtitle": "Vendor-neutral humanizer for professional communication",
+  "shortDescription": "Rewrite rough or AI-sounding professional communication into authentic, client-safe, channel-ready messages without inventing facts.",
+  "longDescription": "Field Voice helps client-facing advisors, account owners, technical specialists, managers, executives, and operators turn rough drafts, meeting notes, AI-generated copy, and over-polished text into credible communication that sounds like a real person. It supports customer emails, executive briefs, chat replies, LinkedIn posts, deck copy, customer meeting follow-ups, manager updates, and technical explanations while preserving facts, citations, product names, commitments, and intent.",
   "category": "Productivity / Communication / Sales and Customer Success",
-  "publisher": "Sac Jain / Microsoft SMB community contribution",
+  "publisher": "Sac Jain",
   "license": "MIT",
   "compatibility": "clawpilot",
-  "repository": "https://github.com/sacjain_microsoft/field-voice-skill",
+  "repository": "https://github.com/sachinjain16/field-voice-skill",
   "productPage": "https://fantastic-spoon-3q8mepw.pages.github.io/",
   "tags": [
-    "CSA",
-    "field communication",
+    "professional communication",
     "humanizer",
     "customer email",
+    "client communication",
     "executive brief",
-    "Teams reply",
+    "chat reply",
     "LinkedIn",
     "deck copy",
     "credibility",
@@ -27,12 +27,13 @@
     "technical explanation"
   ],
   "audiences": [
-    "Cloud Solution Architects",
-    "Digital Sales Solution Partners",
-    "Customer Success teams",
+    "Client-facing advisors",
+    "Account owners",
+    "Customer success teams",
     "Technical specialists",
-    "Field managers",
-    "Partner-facing and customer-facing sellers"
+    "People managers",
+    "Partner-facing and customer-facing teams",
+    "Executives and internal operators"
   ],
   "features": [
     {
@@ -49,7 +50,7 @@
     },
     {
       "name": "Channel-specific modes",
-      "description": "Supports customer email, executive brief, Teams reply, LinkedIn post, deck copy, customer follow-up, manager update, technical explanation, personal note, and public announcement."
+      "description": "Supports customer email, executive brief, chat reply, LinkedIn post, deck copy, customer follow-up, manager update, technical explanation, personal note, and public announcement."
     },
     {
       "name": "Citation and commitment handling",
@@ -57,14 +58,14 @@
     }
   ],
   "presets": [
-    "CSA customer-safe",
-    "CSA decision ask",
+    "Client-safe",
+    "Decision ask",
     "Customer follow-up",
     "Executive brief",
     "Manager update",
     "Technical credible",
     "LinkedIn human",
-    "Teams quick reply",
+    "Quick reply",
     "Deck sharpen"
   ],
   "permissions": {
@@ -78,13 +79,13 @@
     "summary": "Transforms user-provided text inside Clawpilot. The skill itself does not store data, call external services, or send outbound messages.",
     "privacyRules": [
       "Do not invent customer details, facts, citations, metrics, sources, or commitments.",
-      "Preserve confidentiality for customer, partner, employee, email, calendar, Teams, meeting, and document-derived content.",
+      "Preserve confidentiality for customer, partner, employee, email, calendar, chat, meeting, and document-derived content.",
       "Draft only unless the user explicitly requests and confirms an outbound action through the host assistant."
     ]
   },
   "samplePrompts": [
-    "/field-voice\n\nPreset: CSA customer-safe\n\n[paste draft]",
+    "/field-voice\n\nPreset: Client-safe\n\n[paste draft]",
     "/field-voice\n\nPreset: Executive brief\n\nTurn this into a crisp update with status, signal, risk, ask, and next step. Do not add facts.\n\n[paste notes]",
-    "/field-voice\n\nProfile: [paste profile or profile name]\nPreset: CSA decision ask\nMake it a little warmer.\n\n[paste draft]"
+    "/field-voice\n\nProfile: [paste profile or profile name]\nPreset: Decision ask\nMake it a little warmer.\n\n[paste draft]"
   ]
 }

@@ -2,7 +2,7 @@
 
 ## What this skill does
 
-Field Voice rewrites user-provided drafts into more natural, credible, channel-appropriate communication for field teams. It is tuned for CSA and SMB field workflows such as customer emails, executive updates, Teams replies, LinkedIn posts, deck copy, customer meeting follow-ups, manager updates, and technical explanations.
+Field Voice rewrites user-provided drafts into more natural, credible, channel-appropriate professional communication. It is tuned for client-facing, executive, technical, public, and internal workflows such as customer emails, executive updates, chat replies, LinkedIn posts, deck copy, customer meeting follow-ups, manager updates, and technical explanations.
 
 ## What this skill does not do
 
@@ -15,7 +15,7 @@ Field Voice rewrites user-provided drafts into more natural, credible, channel-a
 
 ## Trust and safety design
 
-Field Voice is designed around credible field communication. The most important safety feature is Source-Locked Credibility Mode, which improves tone without changing the factual surface area of the input.
+Field Voice is designed around credible professional communication. The most important safety feature is Source-Locked Credibility Mode, which improves tone without changing the factual surface area of the input.
 
 When active, the skill instructs the assistant to:
 
@@ -52,9 +52,9 @@ Use these prompts to validate core behavior.
 ```text
 /field-voice
 
-Preset: CSA customer-safe
+Preset: Client-safe
 
-Thanks for the call. Azure Arc can help with managing your on-prem servers and cloud servers. I think this will save a ton of time and make everything seamless. We can probably get this done next month.
+Thanks for the call. A hybrid management platform can help with managing your on-premises servers and cloud servers. I think this will save a ton of time and make everything seamless. We can probably get this done next month.
 ```
 
 Expected behavior:
@@ -71,7 +71,7 @@ Expected behavior:
 
 Preset: Technical credible
 
-Azure OpenAI Service supports private networking options. This should eliminate all security risk for the workload and will be approved by compliance.
+The managed AI platform supports private networking options. This should eliminate all security risk for the workload and will be approved by compliance.
 ```
 
 Expected behavior:
@@ -98,8 +98,8 @@ Expected behavior:
 
 ## Known limitation
 
-The currently supplied product page URL may require Microsoft EMU SSO depending on reviewer access:
+The currently supplied product page URL may require additional access depending on reviewer permissions:
 
 https://fantastic-spoon-3q8mepw.pages.github.io/
 
-If marketplace reviewers cannot access it, use the attached static page at `docs\index.html` or host that page in an approved accessible location.
+If marketplace reviewers cannot access it, use the attached static page at `docs/index.html` or host that page in an approved accessible location.

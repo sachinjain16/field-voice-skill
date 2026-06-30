@@ -1,6 +1,6 @@
-# SMB Marketplace submission bundle
+# Marketplace submission bundle
 
-This folder contains copy/paste-ready materials for submitting Field Voice to the SMB Marketplace.
+This folder contains copy/paste-ready materials for submitting Field Voice to a skill marketplace or internal catalog.
 
 ## Included files
 
@@ -32,7 +32,7 @@ Upload or attach the ZIP generated from the repo root:
 ```powershell
 Compress-Archive -Force `
   -Path SKILL.md, README.md, LICENSE, examples, docs, marketplace-submission `
-  -DestinationPath field-voice-smb-marketplace-submission.zip
+  -DestinationPath field-voice-marketplace-submission.zip
 ```
 
-If the marketplace form asks for a product page URL, use the hosted marketplace page if available. If that page is gated by Microsoft EMU SSO, attach `docs\index.html` as the static product page or host it in an approved internal location.
+If the marketplace form asks for a product page URL, use the hosted marketplace page if available. If that page is gated or inaccessible to reviewers, attach `docs/index.html` as the static product page or host it in an approved accessible location.

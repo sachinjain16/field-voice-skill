@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Field Voice - Digital-twin humanizer for field communication</title>
+  <title>Field Voice - Humanizer for professional communication</title>
   <script>
     (() => {
       const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
@@ -313,13 +313,13 @@
 
   <main class="shell">
     <header class="hero">
-      <div class="eyebrow">Digital-twin humanizer for field communication</div>
+      <div class="eyebrow">Humanizer for professional communication</div>
       <h1>Write like a credible human, not a corporate autocomplete.</h1>
-      <p class="lede">Field Voice helps CSAs and field teams turn rough drafts, AI-assisted text, meeting notes, or over-polished corporate language into communication that sounds specific, useful, and ready to send.</p>
+      <p class="lede">Field Voice helps client-facing advisors, account owners, technical specialists, managers, executives, and operators turn rough drafts, AI-assisted text, meeting notes, or over-polished corporate language into communication that sounds specific, useful, and ready to send.</p>
       <div class="actions">
         <a class="button primary" href="#install">Install the skill</a>
         <a class="button" href="#prompts">Copy prompts</a>
-        <a class="button" href="https://github.com/sacjain_microsoft/field-voice-skill">View on GitHub</a>
+        <a class="button" href="https://github.com/sachinjain16/field-voice-skill">View on GitHub</a>
       </div>
     </header>
 
@@ -328,7 +328,7 @@
         <div class="card">
           <div class="metric">9</div>
           <h3>Field Voice Presets</h3>
-          <p class="muted">One-line bundles for customer-safe email, executive briefs, LinkedIn posts, Teams replies, and more.</p>
+          <p class="muted">One-line bundles for customer-safe email, executive briefs, LinkedIn posts, chat replies, and more.</p>
         </div>
         <div class="card">
           <div class="metric">5</div>
@@ -345,10 +345,10 @@
 
     <section id="presets">
       <h2>Field Voice Presets</h2>
-      <p class="section-intro">Presets bundle the detailed settings so field teams do not have to remember every option. Use one line, paste the draft, and let the preset expand behind the scenes.</p>
+      <p class="section-intro">Presets bundle the detailed settings so teams do not have to remember every option. Use one line, paste the draft, and let the preset expand behind the scenes.</p>
       <div class="grid three">
-        <div class="card"><h3>CSA customer-safe</h3><p class="muted">Customer email, source-locked, credibility on, citations preserved, detail trimmed, commitment check on.</p></div>
-        <div class="card"><h3>CSA decision ask</h3><p class="muted">Customer-safe plus a clearer ask when a decision or next step is needed.</p></div>
+        <div class="card"><h3>Client-safe</h3><p class="muted">Customer email, source-locked, credibility on, citations preserved, detail trimmed, commitment check on.</p></div>
+        <div class="card"><h3>Decision ask</h3><p class="muted">Client-safe plus a clearer ask when a decision or next step is needed.</p></div>
         <div class="card"><h3>Customer follow-up</h3><p class="muted">Meeting follow-up mode with decisions, open questions, and actions only.</p></div>
         <div class="card"><h3>Executive brief</h3><p class="muted">Executive-facing compression into signal, risk, ask, and next step.</p></div>
         <div class="card"><h3>Technical credible</h3><p class="muted">Specialist lens, exact product names, no new facts, missing citations flagged.</p></div>
@@ -358,7 +358,7 @@
         <h3>Preset-first prompt</h3>
         <div class="code">/field-voice
 
-Preset: CSA customer-safe
+Preset: Client-safe
 
 [paste draft]</div>
       </div>
@@ -366,11 +366,11 @@ Preset: CSA customer-safe
 
     <section id="modes">
       <h2>Mode-based rewriting</h2>
-      <p class="section-intro">Field Voice adapts the rewrite to the channel. A LinkedIn post should not sound like an executive brief. A Teams reply should not sound like a memo.</p>
+      <p class="section-intro">Field Voice adapts the rewrite to the channel. A LinkedIn post should not sound like an executive brief. A chat reply should not sound like a memo.</p>
       <div class="grid two">
         <div class="card"><h3>Customer email</h3><p class="muted">Warm, clear, professional, with a specific ask. Avoids internal-only reasoning.</p></div>
         <div class="card"><h3>Executive brief</h3><p class="muted">Crisp, outcome-first, no fluff. Useful for status, signal, risk, ask, and next step.</p></div>
-        <div class="card"><h3>Teams reply</h3><p class="muted">Short, natural, conversational, and easy to send in chat.</p></div>
+        <div class="card"><h3>Chat reply</h3><p class="muted">Short, natural, conversational, and easy to send in chat.</p></div>
         <div class="card"><h3>LinkedIn post</h3><p class="muted">Human, reflective, credible, and non-cringey. No corporate hype or engagement bait.</p></div>
         <div class="card"><h3>Deck copy</h3><p class="muted">Tight, punchy, executive-readable slide titles, bullets, and talk tracks.</p></div>
         <div class="card"><h3>Technical explanation</h3><p class="muted">Precise, plainspoken, jargon-aware, and low hype.</p></div>
@@ -379,11 +379,11 @@ Preset: CSA customer-safe
 
     <section id="profiles">
       <h2>Individual voice profiles</h2>
-      <p class="section-intro">The default voice is direct and field-ready. The better version learns from the person's own writing and applies that pattern across modes.</p>
+      <p class="section-intro">The default voice is direct and business-ready. The better version learns from the person's own writing and applies that pattern across modes.</p>
       <table>
         <thead><tr><th>Profile field</th><th>What it captures</th></tr></thead>
         <tbody>
-          <tr><td>Role/context</td><td>CSA, DSSP, manager, specialist, partner-facing, customer-facing, internal operator</td></tr>
+          <tr><td>Role/context</td><td>client advisor, account owner, technical specialist, people manager, partner-facing, customer-facing, executive-facing, internal operator, public/community</td></tr>
           <tr><td>Default tone</td><td>Direct, warm, executive, technical, coach-like, conversational, reflective</td></tr>
           <tr><td>Sentence rhythm</td><td>Short and punchy, balanced, narrative, structured, mixed</td></tr>
           <tr><td>Vocabulary</td><td>Plainspoken, technical, business-oriented, relationship-oriented, strategic</td></tr>
@@ -435,10 +435,10 @@ Make this customer-ready without adding new facts, dates, owners, claims, citati
       <h2>Ready-to-use prompts</h2>
       <div class="grid two">
         <div class="card">
-          <h3>Preset: CSA customer-safe</h3>
+          <h3>Preset: Client-safe</h3>
           <div class="code">/field-voice
 
-Preset: CSA customer-safe
+Preset: Client-safe
 
 [paste draft]</div>
         </div>
@@ -447,7 +447,7 @@ Preset: CSA customer-safe
           <div class="code">/field-voice
 
 Profile: Sac
-Preset: CSA decision ask
+Preset: Decision ask
 Make it a little warmer.
 
 [paste draft]</div>
@@ -549,7 +549,7 @@ Samples:
       <p class="section-intro">Clone the repo into your local Clawpilot skills folder or copy <code>SKILL.md</code> into a skill folder named <code>field-voice</code>.</p>
       <div class="card">
         <div class="code">New-Item -ItemType Directory -Force "$env:USERPROFILE\.copilot\m-skills\field-voice"
-git clone https://github.com/sacjain_microsoft/field-voice-skill.git "$env:USERPROFILE\.copilot\m-skills\field-voice"</div>
+git clone https://github.com/sachinjain16/field-voice-skill.git "$env:USERPROFILE\.copilot\m-skills\field-voice"</div>
       </div>
     </section>
 
@@ -558,13 +558,13 @@ git clone https://github.com/sacjain_microsoft/field-voice-skill.git "$env:USERP
       <p class="section-intro">Field Voice drafts only. It does not send, post, publish, reply, forward, or update content without explicit user approval. It preserves customer confidentiality and avoids adding unsupported claims.</p>
       <div class="grid three">
         <div class="card"><h3>No invented proof</h3><p class="muted">No fake metrics, dates, sources, quotes, or customer details.</p></div>
-        <div class="card"><h3>No oversharing</h3><p class="muted">Private calendar, email, Teams, or internal rationale stays private.</p></div>
+        <div class="card"><h3>No oversharing</h3><p class="muted">Private calendar, email, chat, or internal rationale stays private.</p></div>
         <div class="card"><h3>No over-humanizing</h3><p class="muted">Professional credibility beats slang, fake vulnerability, and performative personality.</p></div>
       </div>
     </section>
 
     <footer class="footer">
-      <p>Field Voice is MIT licensed. Built for authentic, field-ready communication.</p>
+      <p>Field Voice is MIT licensed. Built for authentic, business-ready communication.</p>
     </footer>
   </main>
 </body>

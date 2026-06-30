@@ -1,8 +1,8 @@
 # Field Voice
 
-Field Voice is a digital-twin humanizer for CSA and field communication. It rewrites rough, AI-sounding, or over-polished text into authentic, channel-appropriate communication while preserving facts, intent, and professional credibility.
+Field Voice is a vendor-neutral humanizer for professional communication. It rewrites rough, AI-sounding, or over-polished text into authentic, channel-appropriate communication while preserving facts, intent, and professional credibility.
 
-It is designed for customer emails, executive briefs, Teams replies, LinkedIn posts, deck copy, meeting follow-ups, manager updates, technical explanations, personal notes, and public announcements.
+It is designed for customer emails, executive briefs, chat replies, LinkedIn posts, deck copy, meeting follow-ups, manager updates, technical explanations, personal notes, and public announcements.
 
 > Field Voice is not positioned as an AI-detector evasion tool. It is an authentic communication tuning skill: remove synthetic residue, sharpen the point, adapt to the channel, and help the user sound like themselves.
 
@@ -12,7 +12,7 @@ Clone this repo into your Clawpilot skills directory:
 
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.copilot\m-skills\field-voice"
-git clone https://github.com/sacjain_microsoft/field-voice-skill.git "$env:USERPROFILE\.copilot\m-skills\field-voice"
+git clone https://github.com/sachinjain16/field-voice-skill.git "$env:USERPROFILE\.copilot\m-skills\field-voice"
 ```
 
 Or copy `SKILL.md` into a local Clawpilot skill folder named `field-voice`.
@@ -22,7 +22,7 @@ Or copy `SKILL.md` into a local Clawpilot skill folder named `field-voice`.
 ```text
 /field-voice
 
-Preset: CSA customer-safe
+Preset: Client-safe
 
 [paste draft]
 ```
@@ -33,14 +33,14 @@ Field Voice Presets are the recommended way to use the skill. A preset bundles t
 
 | Preset | Best for | Bundled behavior |
 |---|---|---|
-| CSA customer-safe | Customer-ready email or message | CSA role, customer email mode, source-locked, credibility on, preserve citations, trim detail, commitment check |
-| CSA decision ask | Customer needs to confirm a decision or next step | CSA customer-safe plus decision-needed audience temperature and clear CTA |
+| Client-safe | Customer-ready email or message | Client advisor role, customer email mode, source-locked, credibility on, preserve citations, trim detail, commitment check |
+| Decision ask | Customer needs to confirm a decision or next step | Client-safe plus decision-needed audience temperature and clear CTA |
 | Customer follow-up | Recap after a customer or partner meeting | Meeting follow-up mode, source-locked, decisions/open questions/actions only |
 | Executive brief | Leadership update, ROB, forecast note | Executive-facing, executive compression, signal/risk/ask/next step |
-| Manager update | Weekly/status update | CSA Manager lens, progress/risk/ask, commitment check |
+| Manager update | Weekly/status update | People manager lens, progress/risk/ask, commitment check |
 | Technical credible | Architecture, migration, AI, security, data | Specialist lens, source-locked, preserve product names, flag missing citations |
 | LinkedIn human | Professional public post | Human, reflective, non-hype, no invented events or claims |
-| Teams quick reply | Internal chat | Light polish, no new details, max 3 lines |
+| Quick reply | Internal chat | Light polish, no new details, max 3 lines |
 | Deck sharpen | Slide title, bullet, talk track | Deck copy mode, executive compression, fewer words |
 
 ### Preset examples
@@ -48,7 +48,7 @@ Field Voice Presets are the recommended way to use the skill. A preset bundles t
 ```text
 /field-voice
 
-Preset: CSA customer-safe
+Preset: Client-safe
 
 [paste draft]
 ```
@@ -57,7 +57,7 @@ Preset: CSA customer-safe
 /field-voice
 
 Profile: Sac
-Preset: CSA decision ask
+Preset: Decision ask
 Make it a little warmer.
 
 [paste draft]
@@ -79,6 +79,21 @@ Preset: LinkedIn human
 [paste LinkedIn draft]
 ```
 
+## Role packs
+
+Role packs provide a professional lens without tying Field Voice to a specific company or title.
+
+| Role pack | Best for |
+|---|---|
+| Client advisor | Customer or client-facing trusted-advisor communication |
+| Account owner | Relationship, commercial, renewal, growth, or stakeholder communication |
+| Technical specialist | Architecture, migration, security, AI, data, platform, or engineering explanation |
+| People manager | Internal updates, coaching, blockers, asks, and decision framing |
+| Executive-facing | Concise leadership communication focused on signal, risk, decision, and next step |
+| Partner/channel | Partner, vendor, alliance, or ecosystem communication |
+| Public/community | Public posts, announcements, thought leadership, and community writing |
+| Internal operator | Cross-functional updates, project notes, status, and action-oriented collaboration |
+
 ### How presets resolve
 
 Field Voice applies settings in this order:
@@ -98,7 +113,7 @@ If profile and preset conflict, safety wins over voice.
 |---|---|---|
 | Customer email | External customer or partner communication | Warm, clear, professional, specific ask |
 | Executive brief | Leadership update, ROB, forecast note, business review | Crisp, outcome-first, no fluff |
-| Teams reply | Internal chat response | Short, natural, conversational |
+| Chat reply | Internal chat response | Short, natural, conversational |
 | LinkedIn post | Thought leadership or professional update | Human, reflective, non-cringey |
 | Deck copy | Slide titles, bullets, talk tracks | Tight, punchy, executive-readable |
 | Customer meeting follow-up | Recap and actions after a call | Decisions, owners, next steps, open questions |
@@ -337,15 +352,15 @@ Make this sound like a real person. Keep it professional and reflective. Remove 
 [paste draft]
 ```
 
-### Teams reply
+### Chat reply
 
 ```text
 /field-voice
 
-Mode: Teams reply
+Mode: chat reply
 Rewrite strength: light
 
-Make this short, natural, and easy to send in Teams.
+Make this short, natural, and easy to send in chat.
 
 [paste reply]
 ```
@@ -380,7 +395,7 @@ Keep the facts the same.
 
 ## Safety and privacy
 
-When the input includes customer, partner, employee, calendar, email, meeting, Teams, or document-derived content:
+When the input includes customer, partner, employee, calendar, email, meeting, chat, or document-derived content:
 
 - Preserve confidentiality.
 - Do not add sensitive details.

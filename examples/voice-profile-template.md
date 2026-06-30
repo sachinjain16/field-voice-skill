@@ -7,6 +7,8 @@ Voice profile name:
 
 Role/context:
 
+Role pack:
+
 Default tone:
 
 Sentence rhythm:

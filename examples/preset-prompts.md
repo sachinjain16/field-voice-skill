@@ -2,26 +2,26 @@
 
 Use these prompts when you want the skill to apply a complete settings bundle without spelling out every parameter.
 
-## CSA customer-safe
+## Client-safe
 
 Best for customer-ready email or message cleanup.
 
 ```text
 /field-voice
 
-Preset: CSA customer-safe
+Preset: Client-safe
 
 [paste draft]
 ```
 
-## CSA decision ask
+## Decision ask
 
 Best when the customer needs to make a decision, confirm a path, or commit to a next step.
 
 ```text
 /field-voice
 
-Preset: CSA decision ask
+Preset: Decision ask
 
 Make the ask clear, but keep the tone collaborative.
 
@@ -98,14 +98,14 @@ Make this sound like a real person. Keep it professional, reflective, and non-cr
 [paste draft]
 ```
 
-## Teams quick reply
+## Quick reply
 
 Best for short internal chat responses.
 
 ```text
 /field-voice
 
-Preset: Teams quick reply
+Preset: Quick reply
 
 Keep this under three lines.
 
@@ -134,7 +134,7 @@ Best when the user wants the preset safety behavior but still wants the output t
 /field-voice
 
 Profile: [paste profile or profile name]
-Preset: CSA customer-safe
+Preset: Client-safe
 
 Make it a little warmer, but do not add new facts or commitments.
 

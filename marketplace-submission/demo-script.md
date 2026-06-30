@@ -2,7 +2,7 @@
 
 ## Demo goal
 
-Show that Field Voice turns rough or AI-sounding field communication into credible, ready-to-paste drafts without adding unsupported facts.
+Show that Field Voice turns rough or AI-sounding professional communication into credible, ready-to-paste drafts without adding unsupported facts.
 
 ## Demo 1: Customer-safe rewrite
 
@@ -11,9 +11,9 @@ Prompt:
 ```text
 /field-voice
 
-Preset: CSA customer-safe
+Preset: Client-safe
 
-Thanks for the call today. We can use Azure Arc to bring all your servers into a single pane of glass and this will make management seamless. We should be able to get this done by the end of next month and unlock a lot of value quickly.
+Thanks for the call today. We can use the hybrid management platform to bring your on-premises and cloud servers into one view, and this will make management seamless. We should be able to get this done by the end of next month and unlock a lot of value quickly.
 ```
 
 Talk track:
@@ -30,7 +30,7 @@ Prompt:
 
 Preset: Executive brief
 
-Customer is interested in Azure OpenAI. They have security questions, no confirmed timeline, and want examples from similar customers. We need help from the specialist team before we position next steps.
+Customer is interested in a managed AI platform. They have security questions, no confirmed timeline, and want examples from similar customers. We need help from the specialist team before we position next steps.
 ```
 
 Talk track:
@@ -46,10 +46,10 @@ Prompt:
 /field-voice
 
 Profile: I write in a direct, warm, practical style. I prefer short paragraphs, clear asks, and low hype. I use plain language and avoid corporate buzzwords.
-Preset: CSA decision ask
+Preset: Decision ask
 Make it a little warmer.
 
-Can you confirm if your team wants us to go deeper on Azure VMware Solution or if we should shift the next session to backup and DR? We can do either. Need to know by Friday.
+Can you confirm if your team wants us to go deeper on cloud migration planning or if we should shift the next session to backup and disaster recovery? We can do either. Need to know by Friday.
 ```
 
 Talk track:
@@ -77,4 +77,4 @@ Talk track:
 
 ## Close
 
-Field Voice is differentiated because it is not just a generic humanizer. It is built for field credibility: customer-safe defaults, source-locking, citation preservation, commitment checks, and one-line presets for common CSA workflows.
+Field Voice is differentiated because it is not just a generic humanizer. It is built for professional credibility: client-safe defaults, source-locking, citation preservation, commitment checks, and one-line presets for common business workflows.
