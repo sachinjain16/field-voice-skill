@@ -56,7 +56,7 @@ Preset: Client-safe
 ```text
 /field-voice
 
-Profile: Sac
+Profile: [profile name]
 Preset: Decision ask
 Make it a little warmer.
 
