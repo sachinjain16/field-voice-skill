@@ -2,7 +2,7 @@
   "name": "field-voice",
   "displayName": "Field Voice",
   "version": "1.2.0",
-  "subtitle": "Vendor-neutral humanizer for professional communication",
+  "subtitle": "Vendor-neutral communication calibrator for professional writing",
   "shortDescription": "Rewrite rough or AI-sounding professional communication into authentic, client-safe, channel-ready messages without inventing facts.",
   "longDescription": "Field Voice helps client-facing advisors, account owners, technical specialists, managers, executives, and operators turn rough drafts, meeting notes, AI-generated copy, and over-polished text into credible communication that sounds like a real person. It supports customer emails, executive briefs, chat replies, LinkedIn posts, deck copy, customer meeting follow-ups, manager updates, and technical explanations while preserving facts, citations, product names, commitments, and intent.",
   "category": "Productivity / Communication / Sales and Customer Success",
@@ -13,7 +13,7 @@
   "productPage": "https://fantastic-spoon-3q8mepw.pages.github.io/",
   "tags": [
     "professional communication",
-    "humanizer",
+    "communication calibrator",
     "customer email",
     "client communication",
     "executive brief",

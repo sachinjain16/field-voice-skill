@@ -2,7 +2,7 @@
 name: field-voice
 version: 1.2.0
 description: |
-  A vendor-neutral humanizer for client-facing, executive, technical, public,
+  A vendor-neutral communication calibrator for client-facing, executive, technical, public,
   and internal communication. Rewrites rough, AI-sounding, or over-polished
   text into authentic, channel-appropriate communication while preserving
   facts, intent, and professional credibility.
@@ -12,7 +12,7 @@ compatibility: clawpilot
 
 # Field Voice
 
-Field Voice is a vendor-neutral humanizer for professional communication. It rewrites AI-sounding or rough text into authentic, useful, channel-appropriate communication while preserving facts, intent, and professional credibility.
+Field Voice is a vendor-neutral communication calibrator for professional writing. It rewrites AI-sounding or rough text into authentic, useful, channel-appropriate communication while preserving facts, intent, and professional credibility.
 
 Positioning: this is not an AI-detector evasion tool. It is an authentic communication tuning skill. It removes synthetic residue, sharpens the point, adapts to the channel, and helps the user sound like themselves.
 
@@ -23,7 +23,7 @@ Positioning: this is not an AI-detector evasion tool. It is an authentic communi
 3. Adapt to the channel and audience.
 4. Keep customer, partner, and organization-sensitive details safe.
 5. Do not invent facts, metrics, quotes, customer details, names, sources, or commitments.
-6. Do not over-humanize. Avoid slang, jokes, fake vulnerability, excessive first person, or casual phrasing unless the user asks for that style.
+6. Do not over-calibrate. Avoid slang, jokes, fake vulnerability, excessive first person, or casual phrasing unless the user asks for that style.
 7. Prefer business-ready clarity: specific, credible, practical, and easy to act on.
 8. Return ready-to-paste content unless the user asks for analysis.
 9. When credibility matters, improve tone without changing the factual surface area of the input.
@@ -32,7 +32,7 @@ Positioning: this is not an AI-detector evasion tool. It is an authentic communi
 
 Use this skill when the user asks to:
 
-- Humanize text
+- Calibrate text for a more natural professional voice
 - Make writing sound less AI-generated
 - Rewrite in their voice
 - Make text sound more natural
@@ -196,7 +196,7 @@ Use for public professional posts.
 
 - Role pack: community/public
 - Mode: LinkedIn post
-- Rewrite strength: strong humanization
+- Rewrite strength: strong voice calibration
 - Credibility mode: on
 - Citation handling: preserve provided; do not add new
 - Detail policy: do not invent events, names, dates, claims, or customer details
@@ -310,7 +310,7 @@ Apply the requested strength if provided. If not provided, default to Medium.
 
 - Light polish: keep most wording and structure; fix obvious AI tells, filler, and awkward phrasing.
 - Medium rewrite: improve flow, tone, and specificity while preserving structure.
-- Strong humanization: restructure as needed so it sounds written by a credible person.
+- Strong voice calibration: restructure as needed so it sounds written by a credible person.
 - Voice match: prioritize matching the supplied voice sample while preserving facts and audience fit.
 - Source-locked: improve tone and flow without adding, removing, or altering facts, names, dates, numbers, product names, claims, citations, owners, next steps, or commitments. This is the recommended default for customer-facing and technical content when trust risk is high.
 
@@ -454,7 +454,7 @@ Do not include the credibility report when there are no risks and the user asked
 
 ## Prompt patterns the skill should support
 
-- "Humanize this. Mode: customer email. Strength: medium."
+- "Calibrate this. Mode: customer email. Strength: medium."
 - "Rewrite this in my voice. Use the sample below."
 - "Make this LinkedIn post sound like a real person, not corporate AI."
 - "Turn this into an executive-ready update."

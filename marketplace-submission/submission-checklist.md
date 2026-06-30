@@ -16,7 +16,7 @@
 ## Marketplace fields
 
 - [ ] Title: `Field Voice`
-- [ ] Subtitle: `Vendor-neutral humanizer for professional communication`
+- [ ] Subtitle: `Vendor-neutral communication calibrator for professional writing`
 - [ ] Short description copied from `assets\short-description.txt`
 - [ ] Long description copied from `marketplace-listing.md`
 - [ ] Category selected

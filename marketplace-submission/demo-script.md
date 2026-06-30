@@ -77,4 +77,4 @@ Talk track:
 
 ## Close
 
-Field Voice is differentiated because it is not just a generic humanizer. It is built for professional credibility: client-safe defaults, source-locking, citation preservation, commitment checks, and one-line presets for common business workflows.
+Field Voice is differentiated because it is not just a generic writing tool. It is built for professional credibility: client-safe defaults, source-locking, citation preservation, commitment checks, and one-line presets for common business workflows.

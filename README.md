@@ -1,6 +1,6 @@
 # Field Voice
 
-Field Voice is a vendor-neutral humanizer for professional communication. It rewrites rough, AI-sounding, or over-polished text into authentic, channel-appropriate communication while preserving facts, intent, and professional credibility.
+Field Voice is a vendor-neutral communication calibrator for professional writing. It rewrites rough, AI-sounding, or over-polished text into authentic, channel-appropriate communication while preserving facts, intent, and professional credibility.
 
 It is designed for customer emails, executive briefs, chat replies, LinkedIn posts, deck copy, meeting follow-ups, manager updates, technical explanations, personal notes, and public announcements.
 
@@ -128,7 +128,7 @@ If profile and preset conflict, safety wins over voice.
 |---|---|---|
 | Light polish | The draft is mostly good | Fixes obvious AI tells, filler, and awkward phrasing |
 | Medium rewrite | The draft needs better tone and flow | Improves structure and clarity while preserving most intent |
-| Strong humanization | The draft sounds very AI-generated | Reworks structure and rhythm more aggressively |
+| Strong voice calibration | The draft sounds very AI-generated | Reworks structure and rhythm more aggressively |
 | Voice match | A writing sample is provided | Prioritizes matching the user's style |
 | Source-locked | Customer-facing or technical content where credibility risk is high | Improves tone without adding, removing, or altering facts, claims, citations, product names, owners, timelines, or commitments |
 
@@ -260,7 +260,7 @@ Voice profile dimensions:
 | Generic ending | exciting times ahead | End with a specific point or action |
 | Consultant-speak | unlock, transform, journey, landscape | Replace with plain language |
 
-## Do-not-over-humanize rule
+## Do-not-over-calibrate rule
 
 The goal is human credibility, not casualness.
 

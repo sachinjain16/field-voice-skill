@@ -6,7 +6,7 @@ Field Voice
 
 ## Subtitle
 
-Vendor-neutral humanizer for professional communication
+Vendor-neutral communication calibrator for professional writing
 
 ## Short description
 
@@ -37,7 +37,7 @@ Productivity / Communication / Sales and Customer Success
 
 ## Suggested tags
 
-professional communication, humanizer, customer email, client communication, executive brief, chat reply, LinkedIn, deck copy, credibility, source-locked, AI writing, customer follow-up, technical explanation
+professional communication, communication calibrator, customer email, client communication, executive brief, chat reply, LinkedIn, deck copy, credibility, source-locked, AI writing, customer follow-up, technical explanation
 
 ## Key features
 
