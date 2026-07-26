@@ -1,6 +1,6 @@
 ---
 name: field-voice
-version: 1.2.0
+version: 2.0.0
 description: |
   A vendor-neutral communication calibrator for client-facing, executive, technical, public,
   and internal communication. Rewrites rough, AI-sounding, or over-polished
@@ -16,6 +16,26 @@ Field Voice is a vendor-neutral communication calibrator for professional writin
 
 Positioning: this is not an AI-detector evasion tool. It is an authentic communication tuning skill. It removes synthetic residue, sharpens the point, adapts to the channel, and helps the user sound like themselves.
 
+## Operating modes
+
+Field Voice runs in one of two modes. Infer the mode from the request. If it is ambiguous, default to Calibrate.
+
+### Calibrate (default)
+
+The user shares a draft to improve. Apply the editing discipline and settings below, then return the rewritten draft. This is the primary job and everything else in this document supports it.
+
+### Diagnose
+
+The user asks whether a piece reads as AI, or asks to audit, scan, review, or flag a draft without rewriting it. In Diagnose mode:
+
+- Name each pattern from this skill that appears in the draft.
+- Quote the exact line where it appears.
+- Give the fix in a few words. Do not rewrite the full draft.
+- Do not score the draft or claim to know whether an AI wrote it. Detectors guess; named patterns are evidence the user can check for themselves.
+- After listing the findings, offer to calibrate the draft.
+
+Trigger Diagnose when the user says things like: is this AI slop, does this sound like AI, audit this, scan this for AI tells, review my writing, flag the AI patterns, what is wrong with this, or find the tells without rewriting.
+
 ## Core principles
 
 1. Preserve the user's meaning, facts, and intent.
@@ -27,6 +47,20 @@ Positioning: this is not an AI-detector evasion tool. It is an authentic communi
 7. Prefer business-ready clarity: specific, credible, practical, and easy to act on.
 8. Return ready-to-paste content unless the user asks for analysis.
 9. When credibility matters, improve tone without changing the factual surface area of the input.
+
+## Editing discipline
+
+These rules govern how aggressively to edit. They protect the writer's voice from being flattened into generic polish.
+
+- Make the minimum effective edit. Fix the AI patterns, errors, repetition, and genuinely unclear passages. Leave strong human sentences alone. A rough draft with a real voice should still sound like the same person afterward.
+- Preserve distinctive voice. First notice the draft's own vocabulary, cadence, bluntness, humor, uncertainty, and level of polish. Keep the traits that feel personal to the writer. Do not make every paragraph equally tidy or rewrite a distinctive line just for consistency.
+- Match cutting to the actual problem. The amount you remove should be proportional to the slop present. Do not compress a lively draft into something shorter but lifeless.
+- Lead with the point when the setup adds nothing. Cut generic throat-clearing openers. Keep a personal aside, story, or admission when it creates context, tension, or character.
+- Protect the specific fact. Do not smooth a concrete detail into generic importance. "The migration cut deploy time from 40 minutes to 4" must not become "the migration significantly improved efficiency." Names, numbers, dates, mechanisms, and examples beat abstractions.
+- Prefer active voice with a human subject when the actor matters. Do not let inanimate things perform human verbs.
+- Make verbs carry the weight. "Decided" beats "made a decision." "Can" beats "has the ability to."
+- Untangle without flattening. Split sentences that are genuinely hard to follow, but keep fragments, longer spoken sentences, and changes in pace when they are clear and characteristic of the writer.
+- Keep structure unless it is hurting the piece. Preserve the writer's progression and detours when they carry personality. If you reorganize, say why in the Changed note.
 
 ## When to use
 
@@ -40,6 +74,7 @@ Use this skill when the user asks to:
 - Create or apply a personal voice profile
 - Remove corporate fluff, AI sludge, consultant-speak, or robotic phrasing
 - Use a Field Voice Preset such as Client-safe, Decision ask, Executive brief, LinkedIn human, Quick reply, or Technical credible
+- Diagnose a draft: name the AI tells and quote the lines without rewriting
 
 ## Individual voice profiles
 
@@ -409,6 +444,24 @@ Watch for and fix:
 - Signposting: let's dive in, here's what you need to know, without further ado
 - Fragmented headers followed by one-line restatements
 
+## Words and phrases to cut
+
+Remove these unless the user quoted them as an example, they appear inside preserved source text, or they carry real emphasis in the writer's own voice. When in doubt, cut the inflated word and keep the plain one.
+
+Inflated verbs and buzzwords: delve, leverage, utilize, facilitate, foster, empower, streamline, harness, unlock, elevate, supercharge, spearhead, embark, revolutionize, transform (when it means nothing concrete).
+
+Hype adjectives: groundbreaking, seamless, robust, cutting-edge, world-class, best-in-class, next-generation, game-changing, transformative, vibrant, rich, powerful, unparalleled.
+
+Significance puffery: pivotal, crucial, vital, paramount, testament to, underscores, marks a turning point, in today's landscape, the broader ecosystem, lasting legacy.
+
+Often-empty phrases: it is worth noting, it is important to note, at the end of the day, when it comes to, at its core, needless to say, that being said, in order to, due to the fact that, has the ability to.
+
+Often-empty adverbs: just, literally, truly, simply, actually, fundamentally, importantly, crucially, inherently, inevitably. Keep them only when they carry emphasis, contrast, uncertainty, or the writer's natural spoken rhythm.
+
+## Self-check gate
+
+Before returning any output, run the checklist in [`eval.md`](eval.md) against the result. Answer each check pass or fail. If any check fails, fix the draft and re-run before returning it. Do not require a separate reviewer step; perform this check inline as part of producing the output.
+
 ## Safety and privacy
 
 When the input includes customer, partner, employee, calendar, email, meeting, chat, or document-derived content:
@@ -429,7 +482,16 @@ Default output:
 
 If the user asks for options, provide 2-3 variants with distinct labels such as Direct, Warmer, Executive, or LinkedIn.
 
-If the user asks to diagnose the writing, provide:
+If the user asks to diagnose, audit, or scan the writing without a rewrite (Diagnose mode), provide:
+
+1. Each AI pattern found, named from this skill
+2. The exact line quoted for each
+3. A short fix for each, in a few words
+4. An offer to calibrate the draft next
+
+Do not rewrite the full draft, score it, or claim to know whether an AI wrote it.
+
+If the user asks to diagnose before rewriting but still wants a rewrite, provide:
 
 1. Main AI tells
 2. Recommended mode and rewrite strength
@@ -468,12 +530,17 @@ Do not include the credibility report when there are no risks and the user asked
 - "Preset: Client-safe."
 - "Preset: Executive brief."
 - "Profile: [name]. Preset: Decision ask."
+- "Is this AI slop? Do not rewrite it, just point out the tells."
+- "Audit this draft and quote the AI patterns you find."
+- "Diagnose this first, then give me a source-locked rewrite."
 
 ## Quality bar
 
-Before finalizing, perform an internal audit:
+Before finalizing, run the [`eval.md`](eval.md) self-check gate and perform this internal audit:
 
 - Does this still sound like AI?
+- Did I make the minimum effective edit, or did I over-edit and flatten the voice?
+- Did I preserve the writer's distinctive cadence and character?
 - Did I preserve the actual facts?
 - Did I make it too casual for the audience?
 - Is the ask clear?
@@ -483,4 +550,4 @@ Before finalizing, perform an internal audit:
 - Did I introduce or strengthen any commitment?
 - Did I add useful-sounding but unsupported detail?
 
-Revise until the answer passes that audit.
+Revise until the answer passes both the gate and this audit.

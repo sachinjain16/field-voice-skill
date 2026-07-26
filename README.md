@@ -6,6 +6,14 @@ It is designed for customer emails, executive briefs, chat replies, LinkedIn pos
 
 > Field Voice is not positioned as an AI-detector evasion tool. It is an authentic communication tuning skill: remove synthetic residue, sharpen the point, adapt to the channel, and help the user sound like themselves.
 
+## What's new in v2
+
+- **Diagnose mode.** Ask Field Voice to review a draft without rewriting it. It names each AI pattern, quotes the exact line, and gives a short fix, so you can check the evidence yourself instead of trusting a detector's guess.
+- **Editing discipline.** A minimum-effective-edit rule plus explicit voice-preservation guidance keeps your distinctive cadence intact instead of flattening it into generic polish.
+- **Protect the specific fact.** Concrete numbers, names, and mechanisms are held in place and never smoothed into vague importance.
+- **Words to cut.** An explicit list of inflated verbs, hype adjectives, significance puffery, and empty phrases, each removable without touching real emphasis.
+- **Self-check gate.** Every rewrite is validated inline against [`eval.md`](eval.md) before it is returned.
+
 ## Install
 
 Clone this repo into your Clawpilot skills directory:
@@ -106,6 +114,28 @@ Field Voice applies settings in this order:
 6. Safety, privacy, source-locking, and credibility rules always win.
 
 If profile and preset conflict, safety wins over voice.
+
+## Diagnose a draft
+
+Use Diagnose mode when you want to see the AI tells without a rewrite. Field Voice names each pattern, quotes the line, and suggests a fix, then offers to calibrate.
+
+```text
+/field-voice
+
+Is this AI slop? Point out the tells but do not rewrite it.
+
+[paste draft]
+```
+
+You can also diagnose first, then rewrite:
+
+```text
+/field-voice
+
+Diagnose this, then give me a source-locked rewrite.
+
+[paste draft]
+```
 
 ## Modes
 
