@@ -324,7 +324,7 @@ At its core, this initiative represents a pivotal opportunity to unlock transfor
 
 ## Prompt examples
 
-More copy/paste examples are available in [`examples/preset-prompts.md`](examples/preset-prompts.md).
+More copy/paste examples are available in [`examples/preset-prompts.md`](examples/preset-prompts.md). For full before-and-after walkthroughs across every mode, including Diagnose, source-locked email, executive compression, LinkedIn de-hype, three-variant output, and voice matching, see [`examples/worked-examples.md`](examples/worked-examples.md).
 
 ### Customer email
 
@@ -437,7 +437,7 @@ When the input includes customer, partner, employee, calendar, email, meeting, c
 
 The project page lives in `docs/index.html`. It is a self-contained static HTML page using Clawpilot theme variables for light and dark mode.
 
-If your GitHub organization supports Pages for the target repository, publish the `docs` folder as the Pages source or deploy it through a GitHub Pages workflow. Some Enterprise Managed User accounts do not allow public repos or Pages for private repos; in that case, the page can still be opened locally or hosted from an approved internal site.
+A GitHub Actions workflow at [`.github/workflows/pages.yml`](.github/workflows/pages.yml) publishes the `docs` folder to GitHub Pages on every push to `main` that touches `docs/`, and can be run manually from the Actions tab. To activate it, set the repository's Pages source to "GitHub Actions" in Settings. Some Enterprise Managed User accounts do not allow public repos or Pages for private repos; in that case, the page can still be opened locally or hosted from an approved internal site.
 
 ## License
 

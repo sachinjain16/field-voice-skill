@@ -7,6 +7,8 @@
 - Added an explicit **Words and phrases to cut** list (inflated verbs, hype adjectives, significance puffery, empty phrases, empty adverbs) with keep-when-it-carries-emphasis nuance.
 - Added a **self-check gate** (`eval.md`) that every output is validated against inline before it is returned.
 - Updated the Quality bar and Output format to cover Diagnose mode and the new gate.
+- Added a GitHub Pages workflow (`.github/workflows/pages.yml`) to publish the `docs/` skill page.
+- Added `examples/worked-examples.md`: before-and-after walkthroughs across Diagnose, source-locked email, executive compression, LinkedIn de-hype, quick reply, deck sharpen, three-variant output, and voice matching.
 
 ## 1.2.0
 
