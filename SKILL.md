@@ -7,7 +7,7 @@ description: |
   text into authentic, channel-appropriate communication while preserving
   facts, intent, and professional credibility.
 license: MIT
-compatibility: clawpilot
+compatibility: agent-agnostic
 ---
 
 # Field Voice
